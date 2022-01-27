@@ -1,0 +1,178 @@
+.home-page {
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @media screen and (min-width: 900px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      z-index: 100;
+      background-color: #1c6dd0;
+    }
+    &.foto {
+      background-color: #fdf6f0;
+    }
+  }
+  width: 100vw;
+  height: 100vh;
+  background-color: #1c6dd0;
+  text-transform: uppercase;
+  .nav-home-page {
+    font-size: 1vw;
+    width: 100vw;
+    position: absolute;
+    // margin: 0 3rem 3rem 3rem;
+
+    color: #fdf6f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-kiri {
+      padding: 3rem 0 3rem 3rem;
+      margin-right: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-kanan {
+      padding: 3rem 3rem 3rem 0;
+      margin-left: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #1c6dd0;
+    }
+  }
+  .home-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 900px) {
+      flex-direction: row;
+    }
+    .fotografer-section {
+      font-size: 1.5vw;
+      color: #fdf6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+    .fullstack-section {
+      font-size: 1.5vw;
+      color: #1c6dd0;
+      background-color: #fdf6f0;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.home-page-transition {
+  z-index: -1;
+  top: 0;
+  position: absolute;
+
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @media screen and (min-width: 900px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      z-index: 100;
+      background-color: #1c6dd0;
+    }
+    &.foto {
+      background-color: #fdf6f0;
+    }
+  }
+  width: 100vw;
+  height: 100vh;
+  background-color: #1c6dd0;
+  text-transform: uppercase;
+  .nav-home-page {
+    overflow: hidden;
+    font-size: 1vw;
+    width: 100vw;
+    position: absolute;
+    // margin: 0 3rem 3rem 3rem;
+
+    color: #fdf6f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-kiri {
+      padding: 3rem 0 3rem 3rem;
+      margin-right: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-kanan {
+      padding: 3rem 3rem 3rem 0;
+      margin-left: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #1c6dd0;
+    }
+  }
+  .home-page-container {
+    h1 {
+      overflow: hidden;
+    }
+
+    h2 {
+      overflow: hidden;
+    }
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 900px) {
+      flex-direction: row;
+    }
+    .fotografer-section {
+      white-space: nowrap;
+      font-size: 1.5vw;
+      color: #fdf6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+    .fullstack-section {
+      font-size: 1.5vw;
+      color: #1c6dd0;
+      background-color: #fdf6f0;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

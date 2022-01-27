@@ -1,0 +1,19 @@
+
+$breakpoints: (
+'small': '30rem',
+'medium': '40rem',
+'large': '64rem',
+'xlarge': '87.5rem',
+);
+
+@mixin breakpoint($size) {
+    @media screen and (min-width: map-get($breakpoints, $size)){
+        @content
+    }
+};
+
+@mixin breakpoint-WH($size) {
+    @media screen and (min-width: map-get($breakpoints, $size)) and (min-height: 37.5rem){
+        @content
+    }
+};

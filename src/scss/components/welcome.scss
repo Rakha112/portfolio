@@ -1,0 +1,128 @@
+@use "../util/" as *;
+
+.welcome_page {
+  background-color: #fdf6f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #1c6dd0;
+  justify-content: center;
+  text-transform: uppercase;
+  @media screen and (min-width: 500px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 700px) {
+    font-size: 2rem;
+  }
+  @media screen and (min-width: 1500px) {
+    font-size: 2.5rem;
+  }
+
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @media screen and (min-width: 1000px) {
+      display: flex;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      z-index: 100;
+      border: #1c6dd0 solid 1px;
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    .selamat-datang {
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 18vw;
+
+        overflow: hidden;
+        // @media screen and (min-width: 500px) {
+        //   font-size: 7rem;
+        // }
+        // @media screen and (min-width: 700px) {
+        //   font-size: 10rem;
+        // }
+        // @media screen and (min-width: 1500px) {
+        //   font-size: 18rem;
+        // }
+      }
+    }
+  }
+  .home-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1c6dd0;
+    text-transform: uppercase;
+    .nav-home-page {
+      width: 100vw;
+      position: absolute;
+      // margin: 0 3rem 3rem 3rem;
+      font-size: 1vw;
+      color: #fdf6f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .nav-kiri {
+        padding: 3rem 0 3rem 3rem;
+        margin-right: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-kanan {
+        padding: 3rem 3rem 3rem 0;
+        margin-left: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #1c6dd0;
+      }
+    }
+    .home-page-container {
+      height: 100vh;
+      display: flex;
+      .fotografer-section {
+        font-size: 1.5vw;
+        color: #fdf6f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+      }
+      .fullstack-section {
+        font-size: 1.5vw;
+        color: #1c6dd0;
+        background-color: #fdf6f0;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

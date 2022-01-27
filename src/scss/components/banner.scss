@@ -1,0 +1,45 @@
+.banner {
+  // position: absolute;
+  h2 {
+    padding: 0 1rem 0 1rem;
+    margin-top: 5rem;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 10vw;
+    background-color: hsl(213, 76%, 46%);
+    color: #fdf6f0;
+    transform: rotate(3deg) skew(-0.312rad);
+    @media screen and (min-width: 900px) {
+      font-size: 8vw;
+    }
+  }
+}
+// #ban1 {
+//   top: 0;
+// }
+// #ban2 {
+//   top: 10vw;
+// }
+// #ban3 {
+//   top: 20vw;
+// }
+// #ban4 {
+//   top: 30vw;
+// }
+
+.banner2 {
+  // position: absolute;
+  h2 {
+    padding: 0 1rem 0 1rem;
+    margin-top: 5rem;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 10vw;
+    background-color: #1c6dd0;
+    color: #fdf6f0;
+    transform: rotate(-3deg) skew(0.312rad);
+    @media screen and (min-width: 900px) {
+      font-size: 8vw;
+    }
+  }
+}
