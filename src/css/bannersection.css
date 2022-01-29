@@ -1,2 +1,2 @@
-.banner-section{background-color:#fdf6f0;color:#fdf6f0;height:100vh;width:100vw}
+.banner-section{background-color:var(--warna-cream);color:var(--warna-cream);height:calc(var(--vh, 1vh)*100);width:100vw}
 /*# sourceMappingURL=bannersection.css.map */

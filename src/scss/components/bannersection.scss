@@ -1,13 +1,13 @@
 .banner-section {
   // margin-top: 10vw;
   width: 100vw;
-  height: 100vh;
-  background-color: #fdf6f0;
-  color: #fdf6f0;
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: var(--warna-cream);
+  color: var(--warna-cream);
   // @media screen and (min-width: 900px) {
   //   height: 200vh;
   // }
   // @media screen and (min-width: 1440px) {
-  //   height: 100vh;
+  //   height: calc(var(--vh, 1vh) * 100);
   // }
 }

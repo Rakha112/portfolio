@@ -1,3 +1,5 @@
+@use "../util/" as *;
+
 .container_marquee {
   height: 100%;
   width: 100%;
@@ -6,12 +8,12 @@
   // align-items: center;
   // justify-content: center;
   white-space: nowrap;
-  background-color: #1c6dd0;
-  color: #fdf6f0;
+  background-color: var(--warna-biru);
+  color: var(--warna-cream);
 
   h2 {
     font-size: 18vw;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       font-size: 10vw;
     }
   }

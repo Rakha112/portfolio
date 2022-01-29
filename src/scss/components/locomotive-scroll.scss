@@ -1,3 +1,5 @@
+@use "../util/" as *;
+
 html {
   &.has-scroll-smooth {
     overflow: hidden;
@@ -43,7 +45,7 @@ body {
   transform-origin: center right;
   transition: transform 0.3s, opacity 0.3s;
   opacity: 0;
-  @media screen and (max-width: 900px) {
+  @include breakpoint-max(large) {
     display: none;
   }
   &:hover {
@@ -73,7 +75,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #1c6dd0;
+  background-color: var(--warna-biru);
   opacity: 1;
   width: 7px;
   border-radius: 10px;

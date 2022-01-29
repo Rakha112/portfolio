@@ -10,22 +10,25 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import { useNavigate } from "react-router-dom";
+import useWindowSize from "../hooks/useWindowSize";
 // import Home from "./Home";
 const Welcome = ({ xx, yy, setXX, setYY }) => {
   gsap.registerPlugin(ScrollTrigger);
   const navigate = useNavigate();
   let cursor = useRef(null);
   let container = useRef(null);
-
+  const { height } = useWindowSize();
   gsap.config({
     force3D: true,
   });
 
   useEffect(() => {
     // locomotivescroll
-    console.log(container);
+    // console.log("HALOO");
+    // console.log(container.current);
+    console.log(height);
     const locoScroll = new LocomotiveScroll({
-      el: container,
+      el: container.current,
       smooth: true,
       smartphone: {
         smooth: true,
@@ -40,7 +43,7 @@ const Welcome = ({ xx, yy, setXX, setYY }) => {
     }, 500);
     locoScroll.on("scroll", ScrollTrigger.update);
 
-    ScrollTrigger.scrollerProxy(container, {
+    ScrollTrigger.scrollerProxy(container.current, {
       scrollTop(value) {
         return arguments.length
           ? locoScroll.scrollTo(value, 0, 0)
@@ -57,8 +60,8 @@ const Welcome = ({ xx, yy, setXX, setYY }) => {
     });
 
     ScrollTrigger.create({
-      scroller: container,
-      trigger: container,
+      scroller: container.current,
+      trigger: container.current,
       onEnter: () => {
         console.log("ENTER CONTAINER");
       },
@@ -124,7 +127,7 @@ const Welcome = ({ xx, yy, setXX, setYY }) => {
     <motion.div
       data-scroll-container
       className="welcome_page"
-      ref={(el) => (container = el)}
+      ref={container}
       onMouseMove={(e) => {
         gsap.to(cursor.current, {
           duration: 0.5,

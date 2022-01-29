@@ -11,6 +11,7 @@ const initialState = {
   heigth: 0,
   y: 0,
   x: 0,
+  homeStatus: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -36,6 +37,12 @@ const rootReducer = (state = initialState, action) => {
     return {
       ...state,
       x: action.payload,
+    };
+  }
+  if (action.type === "HOMESTATUS") {
+    return {
+      ...state,
+      homeStatus: action.payload,
     };
   }
   return state;

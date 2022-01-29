@@ -1,3 +1,5 @@
+@use "../util/" as *;
+
 .banner {
   // position: absolute;
   h2 {
@@ -5,11 +7,11 @@
     margin-top: 5rem;
     white-space: nowrap;
     display: inline-block;
-    font-size: 10vw;
-    background-color: hsl(213, 76%, 46%);
-    color: #fdf6f0;
+    font-size: 15vw;
+    background-color: var(--warna-biru);
+    color: var(--warna-cream);
     transform: rotate(3deg) skew(-0.312rad);
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       font-size: 8vw;
     }
   }
@@ -34,11 +36,11 @@
     margin-top: 5rem;
     white-space: nowrap;
     display: inline-block;
-    font-size: 10vw;
+    font-size: 15vw;
     background-color: #1c6dd0;
-    color: #fdf6f0;
+    color: var(--warna-cream);
     transform: rotate(-3deg) skew(0.312rad);
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       font-size: 8vw;
     }
   }

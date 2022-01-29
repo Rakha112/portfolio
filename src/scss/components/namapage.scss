@@ -1,30 +1,31 @@
+@use "../util/" as *;
 .nama_page {
   overflow: hidden;
-  background-color: #1c6dd0;
+  background-color: var(--warna-biru);
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #1c6dd0;
+  color: var(--warna-biru);
   justify-content: center;
   text-transform: uppercase;
-  @media screen and (min-width: 500px) {
+  @include breakpoint(small) {
     font-size: 1.5rem;
   }
-  @media screen and (min-width: 700px) {
+  @include breakpoint(medium) {
     font-size: 2rem;
   }
-  @media screen and (min-width: 1500px) {
+  @include breakpoint(xlarge) {
     font-size: 2.5rem;
   }
 
   .cursor {
     display: none;
     pointer-events: none;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       display: flex;
       position: fixed;
 
@@ -33,15 +34,15 @@
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-      border: 1px solid #fdf6f0;
+      border: 1px solid var(--warna-cream);
       z-index: 100;
       &.masuk {
         // mix-blend-mode: difference;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: #1c6dd0 solid 1px;
-        // background-color: #fdf6f0;
+        border: var(--warna-biru) solid 1px;
+        // background-color: var(--warna-cream);
         font-size: 0.75rem;
         text-align: center;
       }
@@ -56,19 +57,19 @@
     justify-content: center;
     width: 22rem;
     height: 22rem;
-    @media screen and (min-width: 500px) {
+    @include breakpoint(small) {
       width: 32rem;
       height: 32rem;
     }
-    @media screen and (min-width: 700px) {
+    @include breakpoint(medium) {
       width: 42rem;
       height: 42rem;
     }
-    @media screen and (min-width: 900px) and (min-height: 600px) {
+    @include breakpoint-WH(large) {
       width: 40rem;
       height: 40rem;
     }
-    @media screen and (min-width: 1500px) {
+    @include breakpoint(xlarge) {
       width: 52rem;
       height: 52rem;
     }
@@ -83,49 +84,49 @@
     }
     .bunder {
       position: absolute;
-      background-color: #fdf6f0;
+      background-color: var(--warna-cream);
       border-radius: 50%;
       width: 20rem;
       height: 20rem;
 
       z-index: 1;
-      @media screen and (min-width: 500px) {
+      @include breakpoint(small) {
         width: 30rem;
         height: 30rem;
       }
-      @media screen and (min-width: 700px) {
+      @include breakpoint(medium) {
         width: 40rem;
         height: 40rem;
       }
-      @media screen and (min-width: 900px) and (min-height: 600px) {
+      @include breakpoint-WH(large) {
         width: 38rem;
         height: 38rem;
       }
-      @media screen and (min-width: 1500px) {
+      @include breakpoint(xlarge) {
         width: 50rem;
         height: 50rem;
       }
     }
     .bunder2 {
       position: absolute;
-      border: #fdf6f0 solid 2px;
+      border: var(--warna-cream) solid 2px;
       border-radius: 50%;
       width: 22rem;
       height: 22rem;
       z-index: 1;
-      @media screen and (min-width: 500px) {
+      @include breakpoint(small) {
         width: 32rem;
         height: 32rem;
       }
-      @media screen and (min-width: 700px) {
+      @include breakpoint(medium) {
         width: 42rem;
         height: 42rem;
       }
-      @media screen and (min-width: 900px) and (min-height: 600px) {
+      @include breakpoint-WH(large) {
         width: 40rem;
         height: 40rem;
       }
-      @media screen and (min-width: 1500px) {
+      @include breakpoint(xlarge) {
         width: 52rem;
         height: 52rem;
       }

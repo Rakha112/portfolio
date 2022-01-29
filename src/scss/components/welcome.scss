@@ -1,7 +1,7 @@
 @use "../util/" as *;
 
 .welcome_page {
-  background-color: #fdf6f0;
+  background-color: var(--warna-cream);
   width: 100%;
   height: 100%;
   display: flex;
@@ -9,23 +9,24 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #1c6dd0;
+  color: var(--warna-biru);
   justify-content: center;
   text-transform: uppercase;
-  @media screen and (min-width: 500px) {
+  @include breakpoint(small) {
     font-size: 1.5rem;
   }
-  @media screen and (min-width: 700px) {
+
+  @include breakpoint(medium) {
     font-size: 2rem;
   }
-  @media screen and (min-width: 1500px) {
+  @include breakpoint(xlarge) {
     font-size: 2.5rem;
   }
 
   .cursor {
     display: none;
     pointer-events: none;
-    @media screen and (min-width: 1000px) {
+    @include breakpoint(large) {
       display: flex;
       position: fixed;
 
@@ -36,7 +37,7 @@
       border-radius: 50%;
 
       z-index: 100;
-      border: #1c6dd0 solid 1px;
+      border: var(--warna-biru) solid 1px;
     }
   }
 
@@ -45,7 +46,7 @@
     height: 100%;
     .selamat-datang {
       width: 100vw;
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -73,15 +74,15 @@
   }
   .home-page {
     width: 100vw;
-    height: 100vh;
-    background-color: #1c6dd0;
+    height: calc(var(--vh, 1vh) * 100);
+    background-color: var(--warna-biru);
     text-transform: uppercase;
     .nav-home-page {
       width: 100vw;
       position: absolute;
       // margin: 0 3rem 3rem 3rem;
       font-size: 1vw;
-      color: #fdf6f0;
+      color: var(--warna-cream);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -100,15 +101,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: #1c6dd0;
+        color: var(--warna-biru);
       }
     }
     .home-page-container {
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       display: flex;
       .fotografer-section {
         font-size: 1.5vw;
-        color: #fdf6f0;
+        color: var(--warna-cream);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -116,8 +117,8 @@
       }
       .fullstack-section {
         font-size: 1.5vw;
-        color: #1c6dd0;
-        background-color: #fdf6f0;
+        color: var(--warna-biru);
+        background-color: var(--warna-cream);
         flex: 1;
         display: flex;
         justify-content: center;

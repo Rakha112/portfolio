@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <motion.div>
       <motion.div
-        exit={{ x: "200%" }}
+        exit={{ x: "400%" }}
         transition={{ duration: 2, ease: [0.6, 0.01, -0.05, 0.9] }}
         id="ban1"
         className="banner"
@@ -17,7 +17,7 @@ const Banner = () => {
         <h2>scroll &#183; scroll &#183; scroll &#183; scroll</h2>
       </motion.div>
       <motion.div
-        exit={{ x: "-200%" }}
+        exit={{ x: "-400%" }}
         transition={{ duration: 2, ease: [0.6, 0.01, -0.05, 0.9] }}
         id="ban2"
         className="banner2"
@@ -30,7 +30,7 @@ const Banner = () => {
       </motion.div>
 
       <motion.div
-        exit={{ x: "200%" }}
+        exit={{ x: "400%" }}
         transition={{ duration: 2, ease: [0.6, 0.01, -0.05, 0.9] }}
         id="ban3"
         className="banner"
@@ -42,7 +42,7 @@ const Banner = () => {
         <h2>Selamat datang &#183; Selamat datang</h2>
       </motion.div>
       <motion.div
-        exit={{ x: "-200%" }}
+        exit={{ x: "-400%" }}
         transition={{ duration: 2, ease: [0.6, 0.01, -0.05, 0.9] }}
         id="ban4"
         className="banner2"

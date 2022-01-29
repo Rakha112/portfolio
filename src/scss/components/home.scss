@@ -1,30 +1,29 @@
+@use "../util/" as *;
+
 .home-page {
   .cursor {
     display: none;
     pointer-events: none;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: fixed;
-
       top: 0;
       left: 0;
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-
       z-index: 100;
-      background-color: #1c6dd0;
+      background-color: var(--warna-biru);
     }
     &.foto {
-      background-color: #fdf6f0;
+      background-color: var(--warna-cream);
     }
   }
-  width: 100vw;
-  height: 100vh;
-  background-color: #1c6dd0;
+
+  background-color: var(--warna-cream);
   text-transform: uppercase;
   .nav-home-page {
     font-size: 1vw;
@@ -32,51 +31,72 @@
     position: absolute;
     // margin: 0 3rem 3rem 3rem;
 
-    color: #fdf6f0;
+    color: var(--warna-cream);
     display: flex;
     justify-content: space-between;
     align-items: center;
     .nav-kiri {
+      .nav-kiri-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+      }
+      overflow: hidden;
       padding: 3rem 0 3rem 3rem;
       margin-right: 1rem;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
     .nav-kanan {
+      .nav-kanan-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+      }
+      overflow: hidden;
       padding: 3rem 3rem 3rem 0;
       margin-left: 1rem;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #1c6dd0;
+      color: var(--warna-biru);
     }
   }
   .home-page-container {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       flex-direction: row;
     }
     .fotografer-section {
-      font-size: 1.5vw;
-      color: #fdf6f0;
+      .fotografi-container {
+        overflow: hidden;
+      }
+      font-size: 3vw;
+      color: var(--warna-cream);
+      background-color: var(--warna-biru);
       display: flex;
       justify-content: center;
       align-items: center;
       flex: 1;
+      @include breakpoint(large) {
+        font-size: 1.5vw;
+      }
     }
     .fullstack-section {
-      font-size: 1.5vw;
-      color: #1c6dd0;
-      background-color: #fdf6f0;
+      .fullstack-container {
+        overflow: hidden;
+      }
+      font-size: 3vw;
+      color: var(--warna-biru);
+      background-color: var(--warna-cream);
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+      @include breakpoint(large) {
+        font-size: 1.5vw;
+      }
     }
   }
 }
@@ -89,7 +109,7 @@
   .cursor {
     display: none;
     pointer-events: none;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -103,15 +123,15 @@
       border-radius: 50%;
 
       z-index: 100;
-      background-color: #1c6dd0;
+      background-color: var(--warna-biru);
     }
     &.foto {
-      background-color: #fdf6f0;
+      background-color: var(--warna-cream);
     }
   }
   width: 100vw;
-  height: 100vh;
-  background-color: #1c6dd0;
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: var(--warna-biru);
   text-transform: uppercase;
   .nav-home-page {
     overflow: hidden;
@@ -120,7 +140,7 @@
     position: absolute;
     // margin: 0 3rem 3rem 3rem;
 
-    color: #fdf6f0;
+    color: var(--warna-cream);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,7 +159,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #1c6dd0;
+      color: var(--warna-biru);
     }
   }
   .home-page-container {
@@ -150,16 +170,16 @@
     h2 {
       overflow: hidden;
     }
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
-    @media screen and (min-width: 900px) {
+    @include breakpoint(large) {
       flex-direction: row;
     }
     .fotografer-section {
       white-space: nowrap;
       font-size: 1.5vw;
-      color: #fdf6f0;
+      color: var(--warna-cream);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -167,8 +187,8 @@
     }
     .fullstack-section {
       font-size: 1.5vw;
-      color: #1c6dd0;
-      background-color: #fdf6f0;
+      color: var(--warna-biru);
+      background-color: var(--warna-cream);
       flex: 1;
       display: flex;
       justify-content: center;
