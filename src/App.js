@@ -5,6 +5,9 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./components/Home";
 import FotografiPage from "./components/FotografiPage";
 import FullStackDevPage from "./components/FullStackDevPage";
+import About from "./components/About";
+import Contact from "./components/Contact";
+// import Redirect from "./components/Redirect";
 function App() {
   const location = useLocation();
   // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -24,6 +27,9 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="fotografi" element={<FotografiPage />} />
         <Route path="fullstack" element={<FullStackDevPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        {/* <Route path="rakha-wibowo-portfolio" element={<Redirect />} /> */}
         <Route path="/" element={<Namapage />} />
       </Routes>
     </AnimatePresence>

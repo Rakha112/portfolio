@@ -1,0 +1,1 @@
+{"version":3,"sources":["redirect.scss","redirect.css"],"names":[],"mappings":"AAAA,UACE,mCCCF","file":"redirect.css","sourcesContent":[".redirect {\r\n  background-color: var(--warna-cream);\r\n}\r\n",".redirect {\n  background-color: var(--warna-cream);\n}"]}

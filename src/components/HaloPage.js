@@ -13,7 +13,7 @@ const HaloPage = () => {
 
   useEffect(() => {
     const widthParam1 = () => {
-      if (width >= 1500) {
+      if (width >= 1400) {
         return "50rem";
       } else if (width >= 1000 && height >= 600) {
         return "38rem";
@@ -26,7 +26,7 @@ const HaloPage = () => {
       }
     };
     const widthParam2 = () => {
-      if (width >= 1500) {
+      if (width >= 1400) {
         return "52rem";
       } else if (width >= 1000 && height >= 600) {
         return "40rem";
