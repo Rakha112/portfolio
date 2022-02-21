@@ -12,40 +12,68 @@ const initialState = {
   y: 0,
   x: 0,
   homeStatus: null,
+  navKiri: false,
+  navKanan: false,
+  navMobileAktif: false,
+  fullstack: false,
+  fotografer: false,
 };
 
 const rootReducer = (state = initialState, action) => {
-  if (action.type === "WIDTH") {
-    return {
-      ...state,
-      width: action.payload,
-    };
+  switch (action.type) {
+    case "WIDTH":
+      return {
+        ...state,
+        width: action.payload,
+      };
+    case "HEIGH":
+      return {
+        ...state,
+        heigth: action.payload,
+      };
+    case "Y":
+      return {
+        ...state,
+        y: action.payload,
+      };
+    case "X":
+      return {
+        ...state,
+        x: action.payload,
+      };
+    case "HOMESTATUS":
+      return {
+        ...state,
+        homeStatus: action.payload,
+      };
+    case "NAVKIRI":
+      return {
+        ...state,
+        navKiri: action.payload,
+      };
+    case "NAVKANAN":
+      return {
+        ...state,
+        navKanan: action.payload,
+      };
+    case "NAVMOBILEAKTIF":
+      return {
+        ...state,
+        navMobileAktif: action.payload,
+      };
+    case "FOTOGRAFER":
+      return {
+        ...state,
+        fotografer: action.payload,
+      };
+    case "FULLSTACK":
+      return {
+        ...state,
+        fullstack: action.payload,
+      };
+    default:
+      return state;
   }
-  if (action.type === "HEIGTH") {
-    return {
-      ...state,
-      heigth: action.payload,
-    };
-  }
-  if (action.type === "Y") {
-    return {
-      ...state,
-      y: action.payload,
-    };
-  }
-  if (action.type === "X") {
-    return {
-      ...state,
-      x: action.payload,
-    };
-  }
-  if (action.type === "HOMESTATUS") {
-    return {
-      ...state,
-      homeStatus: action.payload,
-    };
-  }
-  return state;
 };
 const store = createStore(rootReducer);
 

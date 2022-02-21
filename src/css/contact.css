@@ -1,0 +1,2 @@
+.contact-container{background-color:var(--warna-cream);color:var(--warna-biru);height:calc(var(--vh, 1vh)*100);width:100vw}.contact-container form{align-items:center;display:flex;flex-direction:column;height:calc(var(--vh, 1vh)*100);justify-content:center}.contact-container form textarea{resize:none}
+/*# sourceMappingURL=contact.css.map */

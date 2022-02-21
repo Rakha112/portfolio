@@ -92,6 +92,7 @@
         align-items: center;
         overflow: hidden;
         #about-container {
+          z-index: 1;
           position: relative;
           overflow: hidden;
           display: flex;
@@ -108,8 +109,17 @@
             display: flex;
             flex-direction: row;
           }
+        }
+        #about2-container {
+          z-index: 0;
+          position: absolute;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+
+          padding: 0.5rem 2rem;
           .about2 {
-            position: absolute;
             display: flex;
             flex-direction: row;
           }
@@ -127,6 +137,7 @@
         align-items: center;
         overflow: hidden;
         #contact-container {
+          z-index: 1;
           cursor: pointer;
           position: relative;
           overflow: hidden;
@@ -143,8 +154,17 @@
             display: flex;
             flex-direction: row;
           }
+        }
+        #contact2-container {
+          right: 3rem;
+          z-index: 0;
+          position: absolute;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          padding: 0.5rem 2rem;
           .contact2 {
-            position: absolute;
             display: flex;
             flex-direction: row;
           }

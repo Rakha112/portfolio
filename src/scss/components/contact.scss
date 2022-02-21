@@ -1,0 +1,16 @@
+.contact-container {
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: var(--warna-cream);
+  color: var(--warna-biru);
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--vh, 1vh) * 100);
+    textarea {
+      resize: none;
+    }
+  }
+}
