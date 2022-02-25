@@ -10,23 +10,21 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import { useNavigate } from "react-router-dom";
-import useWindowSize from "../hooks/useWindowSize";
+
 // import Home from "./Home";
 const Welcome = ({ xx, yy, setXX, setYY }) => {
   gsap.registerPlugin(ScrollTrigger);
   const navigate = useNavigate();
   let cursor = useRef(null);
   let container = useRef(null);
-  const { height } = useWindowSize();
+
   gsap.config({
     force3D: true,
   });
 
   useEffect(() => {
     // locomotivescroll
-    // console.log("HALOO");
-    // console.log(container.current);
-    console.log(height);
+
     const locoScroll = new LocomotiveScroll({
       el: container.current,
       smooth: true,
@@ -62,9 +60,6 @@ const Welcome = ({ xx, yy, setXX, setYY }) => {
     ScrollTrigger.create({
       scroller: container.current,
       trigger: container.current,
-      onEnter: () => {
-        console.log("ENTER CONTAINER");
-      },
       onLeave: () => {
         navigate("/home");
       },

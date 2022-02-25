@@ -26,157 +26,6 @@
   background-color: var(--warna-cream);
   text-transform: uppercase;
 
-  .nav-mobile {
-    @include breakpoint(large) {
-      display: none;
-    }
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: right;
-    padding: 2rem 2rem;
-    .ham {
-      color: var(--warna-cream);
-    }
-    .nav-ham {
-      color: var(--warna-biru);
-      font-size: 8vw;
-      top: 0;
-      right: -100%;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      background-color: var(--warna-cream);
-      .link {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        .about {
-          margin-bottom: 2rem;
-          overflow: hidden;
-        }
-        .contact {
-          overflow: hidden;
-        }
-      }
-      .close {
-        padding: 2rem 2rem;
-        width: 100%;
-        display: flex;
-        justify-content: right;
-        position: absolute;
-      }
-    }
-  }
-  .nav-home-page {
-    @include breakpoint-max(large) {
-      display: none;
-    }
-    font-size: 1vw;
-    width: 100vw;
-    position: absolute;
-    // margin: 0 3rem 3rem 3rem;
-
-    color: var(--warna-cream);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .nav-kiri {
-      .nav-kiri-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-        #about-container {
-          z-index: 1;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-          border-radius: 40px;
-          padding: 0.5rem 2rem;
-          border: 1px solid var(--warna-biru);
-          transition: border 0.5s ease;
-          &:hover {
-            border: 1px solid var(--warna-cream);
-          }
-          .about {
-            display: flex;
-            flex-direction: row;
-          }
-        }
-        #about2-container {
-          z-index: 0;
-          position: absolute;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-
-          padding: 0.5rem 2rem;
-          .about2 {
-            display: flex;
-            flex-direction: row;
-          }
-        }
-      }
-      overflow: hidden;
-      padding: 3rem 0 3rem 3rem;
-      margin-right: 1rem;
-      width: 100%;
-    }
-    .nav-kanan {
-      .nav-kanan-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-        #contact-container {
-          z-index: 1;
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          border-radius: 40px;
-          padding: 0.5rem 2rem;
-          border: 1px solid var(--warna-cream);
-          transition: border 0.5s ease;
-          &:hover {
-            border: 1px solid var(--warna-biru);
-          }
-          .contact {
-            display: flex;
-            flex-direction: row;
-          }
-        }
-        #contact2-container {
-          right: 3rem;
-          z-index: 0;
-          position: absolute;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-          padding: 0.5rem 2rem;
-          .contact2 {
-            display: flex;
-            flex-direction: row;
-          }
-        }
-      }
-      overflow: hidden;
-      padding: 3rem 3rem 3rem 0;
-      margin-left: 1rem;
-      width: 100%;
-      color: var(--warna-biru);
-    }
-  }
   .home-page-container {
     height: calc(var(--vh, 1vh) * 100);
     display: flex;
@@ -249,6 +98,20 @@
   height: calc(var(--vh, 1vh) * 100);
   background-color: var(--warna-biru);
   text-transform: uppercase;
+  .nav-mobile {
+    @include breakpoint(large) {
+      display: none;
+    }
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem 2rem;
+    .ham {
+      font-size: 0;
+      color: var(--warna-cream);
+    }
+  }
   .nav-home-page {
     @include breakpoint-max(large) {
       display: none;

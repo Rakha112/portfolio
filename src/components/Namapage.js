@@ -150,7 +150,6 @@ const Namapage = ({ setWidth, setHeigth, setXX, setYY }) => {
             gsap.to(namaRef, {
               duration: 0.5,
               scale: 1,
-
               ease: "Power4.easeOut",
             });
             gsap.to(bunder.current, {

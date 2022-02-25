@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import "../css/home.css";
 import gsap from "gsap";
@@ -15,7 +15,6 @@ const Home = ({
   navKanan,
   navKiri,
   setHomeStatus,
-  navMobileAktif,
   setFotografer,
   setFullstack,
   setNavKanan,
@@ -24,7 +23,6 @@ const Home = ({
   const cursor = useRef(null);
   const fotograferRef = useRef(null);
   const fullstackRef = useRef(null);
-  const navMobile = useRef(null);
   const { width } = useWindowSize();
   const rakha = useRef(null);
   const wibowo = useRef(null);
@@ -32,25 +30,6 @@ const Home = ({
   gsap.config({
     force3D: true,
   });
-
-  useEffect(() => {
-    console.log(navMobileAktif);
-    if (navMobileAktif) {
-      gsap.to(navMobile.current, {
-        duration: 0.5,
-        x: "-100%",
-        ease: "Power4.easeOut",
-        overwrite: "auto",
-      });
-    } else {
-      gsap.to(navMobile.current, {
-        duration: 2,
-        x: "100%",
-        ease: "Power4.easeOut",
-        overwrite: "auto",
-      });
-    }
-  }, [navMobileAktif]);
 
   useEffect(() => {
     gsap.to(cursor.current, {
@@ -79,7 +58,6 @@ const Home = ({
         return "1.5vw";
       }
     };
-    console.log(navKiri);
     if (fotografer) {
       gsap.to(cursor.current, {
         border: "unset",
@@ -241,7 +219,6 @@ const Home = ({
             setFullstack(false);
             setNavKanan(false);
             setNavKiri(false);
-            console.log("fotografer");
           }}
           onTouchStart={(e) => {
             e.stopPropagation();
@@ -249,7 +226,6 @@ const Home = ({
             setFullstack(false);
             setNavKanan(false);
             setNavKiri(false);
-            console.log("fotografer");
           }}
         >
           <div className="fotografi-container">
@@ -277,7 +253,6 @@ const Home = ({
           ref={fullstackRef}
           className="fullstack-section"
           onMouseEnter={(e) => {
-            // console.log("fullstack");
             e.stopPropagation();
             setNavKiri(false);
             setNavKanan(false);
@@ -285,7 +260,6 @@ const Home = ({
             setFullstack(true);
           }}
           onTouchStart={(e) => {
-            // console.log("fullstack");
             e.stopPropagation();
             setNavKiri(false);
             setNavKanan(false);
@@ -317,7 +291,6 @@ const mapStateToProps = (state) => {
     homeStatus: state.homeStatus,
     navKanan: state.navKanan,
     navKiri: state.navKiri,
-    navMobileAktif: state.navMobileAktif,
     fotografer: state.fotografer,
     fullstack: state.fullstack,
   };
@@ -330,8 +303,6 @@ const mapDispatchToProps = (dispatch) => {
     setHomeStatus: (data) => dispatch({ type: "HOMESTATUS", payload: data }),
     setNavKiri: (data) => dispatch({ type: "NAVKIRI", payload: data }),
     setNavKanan: (data) => dispatch({ type: "NAVKANAN", payload: data }),
-    setNavMobileAktif: (data) =>
-      dispatch({ type: "NAVMOBILEAKTIF", payload: data }),
     setFotografer: (data) => dispatch({ type: "FOTOGRAFER", payload: data }),
     setFullstack: (data) => dispatch({ type: "FULLSTACK", payload: data }),
   };

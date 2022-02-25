@@ -7,6 +7,15 @@ const BannerSection = () => {
     <div id="banner-section" className="banner-section" data-scroll-section>
       <Banner />
       <motion.div className="home-page-transition">
+        <div className="nav-mobile">
+          <div className="ham">
+            <svg width="32" height="18" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#fdf6f0" fillRule="evenodd">
+                <path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z" />
+              </g>
+            </svg>
+          </div>
+        </div>
         <motion.div className="nav-home-page">
           <motion.div className="nav-kiri">
             <motion.h2

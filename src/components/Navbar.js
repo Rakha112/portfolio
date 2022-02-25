@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
-import "../css/home.css";
+import "../css/navbar.css";
 import gsap from "gsap";
-import useWindowSize from "../hooks/useWindowSize";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -21,8 +20,28 @@ const Navbar = ({
 }) => {
   const [enterAbout, setEnterAbout] = useState(false);
   const [enterContact, setEnterContact] = useState(false);
+
   const navigate = useNavigate();
   const navMobile = useRef(null);
+
+  useEffect(() => {
+    if (navMobileAktif) {
+      gsap.to(navMobile.current, {
+        duration: 0.5,
+        x: "-100%",
+        ease: "Power4.easeOut",
+        overwrite: "auto",
+      });
+    } else {
+      gsap.to(navMobile.current, {
+        duration: 2,
+        x: "100%",
+        ease: "Power4.easeOut",
+        overwrite: "auto",
+      });
+    }
+  }, [navMobileAktif]);
+
   const firstName = {
     initial: {},
     animate: {
@@ -92,6 +111,7 @@ const Navbar = ({
 
   const myArray1 = text1.split("");
   const myArray2 = text2.split("");
+
   return (
     <div>
       {" "}
@@ -168,7 +188,6 @@ const Navbar = ({
             setNavKiri(true);
             setNavKanan(false);
             setFullstack(false);
-            console.log("nav-kiri");
           }}
           onTouchStart={(e) => {
             e.stopPropagation();
@@ -176,7 +195,6 @@ const Navbar = ({
             setNavKiri(true);
             setNavKanan(false);
             setFullstack(false);
-            console.log("nav-kiri");
           }}
         >
           <div className="nav-kiri-container">
@@ -270,7 +288,6 @@ const Navbar = ({
         <div
           className="nav-kanan"
           onMouseEnter={(e) => {
-            // console.log("fullstack");
             e.stopPropagation();
             setNavKanan(true);
             setNavKiri(false);

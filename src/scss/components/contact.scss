@@ -1,16 +1,180 @@
+@use "../util/" as *;
+
 .contact-container {
-  width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  // overflow: scroll;
+  // justify-content: space-between;
+  width: 100%;
+  height: 100%;
   background-color: var(--warna-cream);
   color: var(--warna-biru);
-  form {
+  .upper {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: calc(var(--vh, 1vh) * 100);
-    textarea {
-      resize: none;
+    padding: 0 3rem;
+    h1 {
+      // @include breakpoint(large) {
+      //   flex: 1;
+      //   font-size: 5vw;
+      // }
+      max-width: 64rem;
+      width: 100%;
+      font-size: 4rem;
+      padding-top: 6rem;
+    }
+    form {
+      max-width: 64rem;
+      // @include breakpoint(large) {
+      //   flex: 3;
+      //   padding-top: 6rem;
+      // }
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 8rem;
+      width: 100%;
+      // justify-content: center;
+      // align-items: center;
+      // height: calc(var(--vh, 1vh) * 100);
+      label {
+        padding-left: rem(4);
+        text-transform: uppercase;
+      }
+      textarea {
+        // @include breakpoint(large) {
+        //   font-size: 2rem;
+        // }
+        font-family: var(--font-inter);
+        resize: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--warna-biru);
+        font-size: rem(20);
+        width: 100%;
+        color: var(--warna-biru);
+        &:focus {
+          outline: none;
+          &::placeholder {
+            color: transparent;
+          }
+        }
+        &::placeholder {
+          color: var(--warna-biru);
+          opacity: 1;
+        }
+      }
+      input {
+        // @include breakpoint(large) {
+        //   font-size: 2rem;
+        // }
+        position: relative;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--warna-biru);
+        background-color: transparent;
+        opacity: 1;
+        font-size: rem(20);
+        color: var(--warna-biru);
+        &:focus {
+          outline: none;
+          &::placeholder {
+            color: transparent;
+          }
+        }
+        &::placeholder {
+          color: var(--warna-biru);
+          opacity: 1;
+        }
+      }
+      .nama {
+        // @include breakpoint(large) {
+        //   margin-top: 0rem;
+        // }
+        position: relative;
+        margin-top: 4rem;
+        label {
+          position: absolute;
+        }
+      }
+      .email {
+        position: relative;
+        margin-top: 4rem;
+        label {
+          position: absolute;
+        }
+      }
+      .pesan {
+        position: relative;
+        margin-bottom: 4rem;
+        margin-top: 4rem;
+        label {
+          z-index: 0;
+          position: absolute;
+        }
+      }
+      button {
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--warna-biru);
+        width: rem(100);
+        height: rem(50);
+        border-radius: rem(30);
+        background-color: transparent;
+        border: 2px solid var(--warna-biru);
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: var(--warna-biru);
+          color: var(--warna-cream);
+        }
+      }
+      #kirim-container {
+        font-weight: 400;
+        width: rem(150);
+        text-transform: uppercase;
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        border-radius: 40px;
+        padding: 0.5rem 2rem;
+        border: 1px solid var(--warna-biru);
+
+        .kirim {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+      #kirim2-container {
+        font-weight: 400;
+        width: rem(150);
+        text-transform: uppercase;
+        z-index: 0;
+        position: absolute;
+        cursor: pointer;
+        transform: translateY(-46px);
+        padding: 0.5rem 2rem;
+        .kirim2 {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    bottom: 0;
+    .footer-container {
+      width: 100vw;
+      height: 10rem;
+      background-color: var(--warna-biru);
+      h1 {
+        color: var(--warna-cream);
+      }
     }
   }
 }
