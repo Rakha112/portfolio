@@ -1,0 +1,59 @@
+@use "../util/" as *;
+
+footer {
+  width: 100%;
+  @include breakpoint(large) {
+    height: 13rem;
+  }
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--warna-biru);
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3rem;
+    @include breakpoint(large) {
+      padding: 0;
+      flex-direction: row;
+    }
+    align-items: center;
+    height: 100%;
+    max-width: 64rem;
+    width: 100%;
+    .sosial-media {
+      width: 100%;
+      h1 {
+        color: var(--warna-cream);
+      }
+      .sosial-media-icon {
+        max-width: 20rem;
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        a {
+          display: flex;
+        }
+      }
+    }
+    .email {
+      @include breakpoint(large) {
+        padding-top: 0;
+      }
+      padding-top: 2rem;
+      width: 100%;
+      h1 {
+        color: var(--warna-cream);
+      }
+      p {
+        padding-top: 0.5rem;
+        color: var(--warna-cream);
+        width: 100%;
+      }
+    }
+  }
+}

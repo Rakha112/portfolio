@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
 import "../css/locomotive-scroll.css";
 import "../css/contact.css";
 import "../css/home.css";
 import { motion } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
-import Navbar from "./Navbar";
-const Contact = () => {
+import Footer from "../components/Footer";
+import gsap from "gsap";
+const Contact = ({ footer }) => {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [pesan, setPesan] = useState("");
@@ -19,7 +21,8 @@ const Contact = () => {
   const [pesanMerah, setPesanMerah] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const contactRef = useRef(null);
-  const textareaRef = useRef(null);
+  const cursor = useRef(null);
+
   axios.defaults.withCredentials = true;
   const sendForm = async () => {
     if (nama === "") {
@@ -52,6 +55,30 @@ const Contact = () => {
   };
 
   useEffect(() => {
+    if (footer) {
+      gsap.to(cursor.current, {
+        border: "1px solid #fdf6f0",
+        width: "4rem",
+        height: "4rem",
+        color: "#fdf6f0",
+        backgroundColor: "transparent",
+        ease: "Power4.easeOut",
+        overwrite: "auto",
+      });
+    } else {
+      gsap.to(cursor.current, {
+        border: "1px solid #1c6dd0",
+        width: "4rem",
+        height: "4rem",
+        color: "#1c6dd0",
+        backgroundColor: "transparent",
+        ease: "Power4.easeOut",
+        overwrite: "auto",
+      });
+    }
+  }, [footer]);
+
+  useEffect(() => {
     // locomotivescroll
     const locoScroll = new LocomotiveScroll({
       el: contactRef.current,
@@ -75,7 +102,6 @@ const Contact = () => {
   }, []);
 
   useEffect(() => {
-    console.log(emailMerah);
     if (nama === "") {
       setLabelNama(false);
     }
@@ -174,12 +200,36 @@ const Contact = () => {
   const myArray1 = text1.split("");
 
   return (
-    <div className="contact-container" ref={contactRef} data-scroll-container>
-      {/* <Navbar /> */}
+    <div
+      className="contact-container"
+      ref={contactRef}
+      data-scroll-container
+      onMouseMove={(e) => {
+        gsap.to(cursor.current, {
+          duration: 0.5,
+          xPercent: -50,
+          yPercent: -50,
+          x: e.clientX,
+          y: e.clientY,
+          ease: "Power4.easeOut",
+          overwrite: "auto",
+        });
+      }}
+    >
+      <div className="cursor" ref={cursor}></div>
       <div className="upper" data-scroll-section>
-        <h1>Contact</h1>
-        <form
+        <motion.h1
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+        >
+          Contact
+        </motion.h1>
+        <motion.form
           // autoComplete="off"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
           action="submit"
         >
           <div className="nama">
@@ -207,6 +257,28 @@ const Contact = () => {
               }
               type="text"
               name="name"
+              onMouseEnter={() => {
+                gsap.to(cursor.current, {
+                  border: "0px solid #fdf6f0",
+                  width: "0rem",
+                  height: "0rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
+              onMouseLeave={() => {
+                gsap.to(cursor.current, {
+                  border: "1px solid #1c6dd0",
+                  width: "4rem",
+                  height: "4rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
               onChange={(e) => {
                 setLabelNama(true);
                 e.preventDefault();
@@ -240,6 +312,28 @@ const Contact = () => {
               }
               type="email"
               name="email"
+              onMouseEnter={() => {
+                gsap.to(cursor.current, {
+                  border: "0px solid #fdf6f0",
+                  width: "0rem",
+                  height: "0rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
+              onMouseLeave={() => {
+                gsap.to(cursor.current, {
+                  border: "1px solid #1c6dd0",
+                  width: "4rem",
+                  height: "4rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
               onChange={(e) => {
                 e.preventDefault();
                 setLabelEmail(true);
@@ -274,6 +368,28 @@ const Contact = () => {
               name="pesan"
               id="pesan"
               rows="3"
+              onMouseEnter={() => {
+                gsap.to(cursor.current, {
+                  border: "0px solid #fdf6f0",
+                  width: "0rem",
+                  height: "0rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
+              onMouseLeave={() => {
+                gsap.to(cursor.current, {
+                  border: "1px solid #1c6dd0",
+                  width: "4rem",
+                  height: "4rem",
+                  color: "#1c6dd0",
+                  backgroundColor: "transparent",
+                  ease: "Power4.easeOut",
+                  overwrite: "auto",
+                });
+              }}
               onChange={(e) => {
                 setLabelPesan(true);
                 e.preventDefault();
@@ -286,7 +402,6 @@ const Contact = () => {
           <div className="submit-container">
             <div className="submit">
               <motion.h2
-                exit={{ y: -400 }}
                 transition={{
                   duration: 1.4,
                   ease: [0.43, 0.13, 0.23, 0.96],
@@ -297,9 +412,27 @@ const Contact = () => {
                 id="kirim-container"
                 onMouseEnter={() => {
                   setEnterKirim(true);
+                  gsap.to(cursor.current, {
+                    border: "0px solid #fdf6f0",
+                    width: "0rem",
+                    height: "0rem",
+                    color: "#1c6dd0",
+                    backgroundColor: "transparent",
+                    ease: "Power4.easeOut",
+                    overwrite: "auto",
+                  });
                 }}
                 onMouseLeave={() => {
                   setEnterKirim(false);
+                  gsap.to(cursor.current, {
+                    border: "1px solid #1c6dd0",
+                    width: "4rem",
+                    height: "4rem",
+                    color: "#1c6dd0",
+                    backgroundColor: "transparent",
+                    ease: "Power4.easeOut",
+                    overwrite: "auto",
+                  });
                 }}
                 onClick={(e) => {
                   handleSubmit(e);
@@ -316,7 +449,6 @@ const Contact = () => {
                 </div>
               </motion.h2>
               <motion.h2
-                exit={{ y: -400 }}
                 transition={{
                   duration: 1.4,
                   ease: [0.43, 0.13, 0.23, 0.96],
@@ -338,17 +470,17 @@ const Contact = () => {
               </motion.h2>
             </div>
           </div>
-        </form>
+        </motion.form>
       </div>
-      <footer data-scroll-section>
-        <div className="footer-container">
-          <div className="sosial-media">
-            <h1>Social Media</h1>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
 
-export default Contact;
+const mapStateToProps = (state) => {
+  return {
+    footer: state.footer,
+  };
+};
+
+export default connect(mapStateToProps)(Contact);

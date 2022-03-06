@@ -1,24 +1,36 @@
 @use "../util/" as *;
 
 .contact-container {
-  position: relative;
-  // overflow: scroll;
-  // justify-content: space-between;
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @include breakpoint(large) {
+      display: flex;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      z-index: 100;
+      border: var(--warna-biru) solid 1px;
+    }
+  }
   width: 100%;
-  height: 100%;
+  position: fixed;
   background-color: var(--warna-cream);
   color: var(--warna-biru);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .upper {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 3rem;
     h1 {
-      // @include breakpoint(large) {
-      //   flex: 1;
-      //   font-size: 5vw;
-      // }
       max-width: 64rem;
       width: 100%;
       font-size: 4rem;
@@ -26,25 +38,17 @@
     }
     form {
       max-width: 64rem;
-      // @include breakpoint(large) {
-      //   flex: 3;
-      //   padding-top: 6rem;
-      // }
       display: flex;
       flex-direction: column;
       padding-bottom: 8rem;
       width: 100%;
-      // justify-content: center;
-      // align-items: center;
-      // height: calc(var(--vh, 1vh) * 100);
       label {
+        z-index: -1;
+        position: absolute;
         padding-left: rem(4);
         text-transform: uppercase;
       }
       textarea {
-        // @include breakpoint(large) {
-        //   font-size: 2rem;
-        // }
         font-family: var(--font-inter);
         resize: none;
         background-color: transparent;
@@ -65,10 +69,6 @@
         }
       }
       input {
-        // @include breakpoint(large) {
-        //   font-size: 2rem;
-        // }
-        position: relative;
         width: 100%;
         border: none;
         border-bottom: 1px solid var(--warna-biru);
@@ -88,30 +88,17 @@
         }
       }
       .nama {
-        // @include breakpoint(large) {
-        //   margin-top: 0rem;
-        // }
         position: relative;
         margin-top: 4rem;
-        label {
-          position: absolute;
-        }
       }
       .email {
         position: relative;
         margin-top: 4rem;
-        label {
-          position: absolute;
-        }
       }
       .pesan {
         position: relative;
         margin-bottom: 4rem;
         margin-top: 4rem;
-        label {
-          z-index: 0;
-          position: absolute;
-        }
       }
       button {
         font-size: 1rem;
@@ -141,7 +128,6 @@
         border-radius: 40px;
         padding: 0.5rem 2rem;
         border: 1px solid var(--warna-biru);
-
         .kirim {
           display: flex;
           flex-direction: row;
@@ -162,18 +148,6 @@
           flex-direction: row;
           justify-content: center;
         }
-      }
-    }
-  }
-  footer {
-    position: relative;
-    bottom: 0;
-    .footer-container {
-      width: 100vw;
-      height: 10rem;
-      background-color: var(--warna-biru);
-      h1 {
-        color: var(--warna-cream);
       }
     }
   }

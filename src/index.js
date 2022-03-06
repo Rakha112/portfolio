@@ -17,6 +17,7 @@ const initialState = {
   navMobileAktif: false,
   fullstack: false,
   fotografer: false,
+  footer: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -70,6 +71,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         fullstack: action.payload,
+      };
+    case "FOOTER":
+      return {
+        ...state,
+        footer: action.payload,
       };
     default:
       return state;
