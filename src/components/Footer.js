@@ -6,6 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import WhatsappRoundedIcon from "@mui/icons-material/WhatsappRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const Footer = ({ setFooter, footer }) => {
   return (
     <footer
@@ -33,13 +34,6 @@ const Footer = ({ setFooter, footer }) => {
               <InstagramIcon sx={{ color: "#fdf7f2", fontSize: 40 }} />
             </a>
             <a
-              href="https://github.com/Rakha112"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon sx={{ color: "#fdf7f2", fontSize: 40 }} />
-            </a>
-            <a
               href="https://wa.me/6281229284274"
               target="_blank"
               rel="noopener noreferrer"
@@ -52,6 +46,20 @@ const Footer = ({ setFooter, footer }) => {
               rel="noopener noreferrer"
             >
               <EmailRoundedIcon sx={{ color: "#fdf7f2", fontSize: 40 }} />
+            </a>
+            <a
+              href="https://github.com/Rakha112"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon sx={{ color: "#fdf7f2", fontSize: 40 }} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rakha-wibowo/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon sx={{ color: "#fdf7f2", fontSize: 40 }} />
             </a>
           </div>
         </motion.div>

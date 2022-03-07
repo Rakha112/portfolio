@@ -1,0 +1,87 @@
+@use "../util/" as *;
+
+.about-page {
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @include breakpoint(large) {
+      display: flex;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      z-index: 100;
+      border: var(--warna-biru) solid 1px;
+    }
+  }
+  width: 100%;
+  position: fixed;
+  background-color: var(--warna-cream);
+  color: var(--warna-biru);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 5rem;
+    // @include breakpoint(large) {
+    //   flex-direction: row;
+    // }
+    .foto-container {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 21rem;
+      max-height: 21rem;
+      width: 73vw;
+      height: 73vw;
+      border-radius: 50%;
+      border: red 1px solid;
+      img {
+        max-width: 20rem;
+        width: 70vw;
+      }
+    }
+    .about-isi {
+      margin-top: 2rem;
+      padding: 2rem 2rem;
+      border: 1px solid var(--warna-biru);
+      h1 {
+        @include breakpoint(large) {
+          font-size: 3rem;
+        }
+        font-size: 2rem;
+      }
+      h2 {
+        @include breakpoint(large) {
+          font-size: 2.5rem;
+        }
+        font-size: 1.5rem;
+      }
+      h3 {
+        line-height: 1.5;
+      }
+
+      .saya-wrapper {
+        margin-top: 1rem;
+      }
+      .profile-wrapper {
+        margin-top: 1rem;
+      }
+      .biodata-wrapper {
+        margin-top: 1rem;
+        .pendidikan {
+          border-bottom: 1px solid var(--warna-biru);
+        }
+      }
+    }
+  }
+}
