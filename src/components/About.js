@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../css/about.css";
 import "../css/locomotive-scroll.css";
+import "../css/navbarmobile.css";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Footer from "./Footer";
 import LocomotiveScroll from "locomotive-scroll";
 import profile from "../images/profile.png";
@@ -8,6 +11,7 @@ import gsap from "gsap";
 import { connect } from "react-redux";
 import { motion } from "framer-motion";
 import useWindowSize from "../hooks/useWindowSize";
+import NavbarMobile from "../components/NavbarMobile";
 const About = ({ footer }) => {
   const { height, width } = useWindowSize();
 
@@ -15,8 +19,8 @@ const About = ({ footer }) => {
   const cursor = useRef(null);
   const bunder = useRef(null);
   const fotoRef = useRef(null);
-  const [x, setX] = useState();
-  const [y, setY] = useState();
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
   var xPos = x / width - 0.5;
   var yPos = y / height - 0.5;
   useEffect(() => {
@@ -103,6 +107,7 @@ const About = ({ footer }) => {
       }}
     >
       <div className="cursor" ref={cursor}></div>
+      <NavbarMobile target=".about-page" warna="#1c6dd0" />
       <div className="about-container" data-scroll-section>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -110,7 +115,12 @@ const About = ({ footer }) => {
           className="foto-container"
           ref={bunder}
         >
-          <img src={profile} alt="Foto Saya" ref={fotoRef} />
+          <LazyLoadImage
+            alt="Foto Profile"
+            effect="blur"
+            src={profile}
+            ref={fotoRef}
+          />
         </motion.div>
         <motion.div
           initial={{ y: 20, opacity: 0 }}

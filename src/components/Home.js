@@ -173,7 +173,6 @@ const Home = ({
 
   return (
     <div
-      data-scroll-section
       className="home-page"
       onMouseMove={(e) => {
         gsap.to(cursor.current, {

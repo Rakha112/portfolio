@@ -45,9 +45,6 @@ body {
   transform-origin: center right;
   transition: transform 0.3s, opacity 0.3s;
   opacity: 0;
-  @include breakpoint-max(large) {
-    display: none;
-  }
   &:hover {
     transform: scaleX(1.45);
   }

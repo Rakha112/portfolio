@@ -1,0 +1,59 @@
+@use "../util/" as *;
+
+.nav-mobile {
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 10;
+  @include breakpoint(large) {
+    display: none;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 2rem;
+  .ham {
+    cursor: pointer;
+  }
+  .nav-ham {
+    z-index: 999;
+    color: var(--warna-biru);
+    font-size: 8vw;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--warna-cream);
+    .link-wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .home {
+        margin-bottom: 2rem;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .about {
+        cursor: pointer;
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+      .contact {
+        cursor: pointer;
+        overflow: hidden;
+      }
+    }
+    .close {
+      cursor: pointer;
+      padding: 2rem 2rem;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+    }
+  }
+}

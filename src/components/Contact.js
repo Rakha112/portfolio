@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
 import Footer from "../components/Footer";
 import gsap from "gsap";
+import NavbarMobile from "../components/NavbarMobile";
 const Contact = ({ footer }) => {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
@@ -217,6 +218,7 @@ const Contact = ({ footer }) => {
       }}
     >
       <div className="cursor" ref={cursor}></div>
+      <NavbarMobile target=".contact-container" warna="#1c6dd0" />
       <div className="upper" data-scroll-section>
         <motion.h1
           initial={{ y: 20, opacity: 0 }}

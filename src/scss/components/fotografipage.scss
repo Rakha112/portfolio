@@ -1,0 +1,174 @@
+@use "../util/" as *;
+
+.fotografipage-container {
+  background-color: var(--warna-biru);
+
+  .fotografer-wrapper {
+    z-index: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      overflow: hidden;
+      text-transform: uppercase;
+      display: flex;
+      font-size: 8vw;
+      @include breakpoint(large) {
+        font-size: 4vw;
+      }
+      color: var(--warna-cream);
+    }
+  }
+  .wrapper:nth-child(1) {
+    border-left: unset;
+  }
+  .wrapper {
+    border-left: 1px solid var(--warna-pink-tua);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    h1 {
+      padding-top: 5rem;
+      @include breakpoint(medium) {
+        padding-top: 8rem;
+      }
+      text-transform: uppercase;
+      width: 100%;
+      font-size: 4rem;
+      @include breakpoint(xlarge) {
+        font-size: 6rem;
+      }
+    }
+    .foto-wrapper {
+      flex-wrap: nowrap;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300vw;
+      @include breakpoint(medium) {
+        width: 100vw;
+      }
+      .foto {
+        border: 1px solid var(--warna-pink-tua);
+        margin: 0 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        height: 100vw;
+        width: 100vw;
+        @include breakpoint(medium) {
+          width: 18rem;
+          height: 18rem;
+        }
+        @include breakpoint(large) {
+          width: 26rem;
+          height: 26rem;
+        }
+        @include breakpoint(xlarge) {
+          width: 38rem;
+          height: 38rem;
+        }
+        .psoedo {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          background-color: var(--warna-pink);
+          z-index: 3;
+        }
+        img:not(.makan-dulu) {
+          // padding: 0.5rem 0;
+          z-index: 1;
+          height: 100vw;
+          width: 100vw;
+          @include breakpoint(medium) {
+            width: 18rem;
+            height: 18rem;
+          }
+          @include breakpoint(large) {
+            width: 26rem;
+            height: 26rem;
+          }
+          @include breakpoint(xlarge) {
+            width: 38rem;
+            height: 38rem;
+          }
+        }
+        .placeholder {
+          z-index: 2;
+          position: absolute;
+        }
+        .makan-dulu {
+          width: 100vw;
+          @include breakpoint(medium) {
+            width: 18rem;
+          }
+          @include breakpoint(large) {
+            width: 26rem;
+          }
+          @include breakpoint(xlarge) {
+            width: 38rem;
+          }
+        }
+      }
+    }
+  }
+  .pink-container {
+    width: 600% !important;
+    max-width: 600% !important;
+    @include breakpoint(medium) {
+      width: 200% !important;
+      max-width: 200% !important;
+    }
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    h1 {
+      color: var(--warna-pink-tua);
+    }
+  }
+  .kuning-container {
+    overscroll-behavior: none;
+    width: 900% !important;
+    max-width: 900% !important;
+    @include breakpoint(medium) {
+      width: 300% !important;
+      max-width: 300% !important;
+    }
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    h1 {
+      color: var(--warna-kuning-tua);
+    }
+  }
+  .coklat-container {
+    overscroll-behavior: none;
+    width: 900% !important;
+    max-width: 900% !important;
+    @include breakpoint(medium) {
+      width: 300% !important;
+      max-width: 300% !important;
+    }
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    h1 {
+      color: var(--warna-coklat-tua);
+    }
+  }
+}
+[data-scroll-container] {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}

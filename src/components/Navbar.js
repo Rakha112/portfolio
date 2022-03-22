@@ -114,7 +114,6 @@ const Navbar = ({
 
   return (
     <div>
-      {" "}
       <div className="nav-mobile">
         <div
           className="ham"
