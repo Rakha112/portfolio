@@ -19,7 +19,6 @@ const Footer = ({ setFooter, footer }) => {
           className="sosial-media"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 20, opacity: 0 }}
         >
           <h1>Sosial Media</h1>
           <div className="sosial-media-icon">
@@ -67,7 +66,6 @@ const Footer = ({ setFooter, footer }) => {
           className="email"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 20, opacity: 0 }}
         >
           <h1>Email</h1>
           <p>rakhawibowo1998@gmail.com</p>

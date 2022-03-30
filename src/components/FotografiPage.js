@@ -8,11 +8,11 @@ import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Foto from "../data/foto";
-// import CloudinaryFoto from "../data/getFoto";
+import { connect } from "react-redux";
 import FotoPlaceholder from "../data/fotoplaceholder";
 import NavbarMobileFoto from "../components/NavbarMobileFoto";
-
-const FotografiPage = () => {
+import NavbarDesktop from "./NavbarDesktop";
+const FotografiPage = ({ navMobileAktif, setNavDesktopHide }) => {
   gsap.registerPlugin(ScrollTrigger);
   const [aLoaded, setALoaded] = useState({
     0: false,
@@ -54,7 +54,6 @@ const FotografiPage = () => {
     1: false,
     2: false,
   });
-
   const [kuning, setKuning] = useState(false);
   const [coklat, setCoklat] = useState(false);
   const [a, setA] = useState(false);
@@ -68,6 +67,10 @@ const FotografiPage = () => {
   const [scrollerPink, setScrollerPink] = useState(false);
   const [scrollerKuning, setScrollerKuning] = useState(false);
   const [scrollerCoklat, setScrollerCoklat] = useState(false);
+  const [arahScroller, setArahScroller] = useState();
+  const [x, setX] = useState();
+  const [y, setY] = useState();
+  const [deltaY, setDeltaY] = useState(0);
   const containerRef = useRef(null);
   const pinkgRef = useRef(null);
   const kuningRef = useRef(null);
@@ -83,6 +86,7 @@ const FotografiPage = () => {
   const panelsPink = useRef([]);
   const panelsKuning = useRef([]);
   const panelsCoklat = useRef([]);
+  const cursor = useRef(null);
   const createPanelsRefsPink = (panel, index) => {
     panelsPink.current[index] = panel;
   };
@@ -95,13 +99,33 @@ const FotografiPage = () => {
   gsap.config({
     force3D: true,
   });
-
+  // useEffect(() => {
+  //   gsap.to(cursor.current, {
+  //     duration: 0.5,
+  //     xPercent: -50,
+  //     yPercent: -50,
+  //     x: x,
+  //     y: y + deltaY,
+  //     ease: "Power4.easeOut",
+  //     overwrite: "auto",
+  //   });
+  //   console.log(containerRef);
+  // }, [deltaY, x, y]);
   useEffect(() => {
     setTimeout(() => {
       setA(true);
     }, 2500);
-    console.log(pinkgRef.current);
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      const cThumb = document.getElementsByClassName("c-scrollbar_thumb")[0];
+      if (navMobileAktif) {
+        cThumb.style.display = "none";
+      } else {
+        cThumb.style.display = "unset";
+      }
+    }, 500);
+  }, [navMobileAktif]);
 
   useEffect(() => {
     gsap.to(".c-scrollbar_thumb", {
@@ -123,7 +147,6 @@ const FotografiPage = () => {
     const totalPanelsPink = panelsPink.current.length;
     const totalPanelsKuning = panelsKuning.current.length;
     const totalPanelsCoklat = panelsCoklat.current.length;
-    console.log(totalPanelsPink);
     const locoScroll = new LocomotiveScroll({
       el: containerRef.current,
       smooth: true,
@@ -138,8 +161,20 @@ const FotografiPage = () => {
     setTimeout(function () {
       locoScroll.update();
     }, 500);
+    locoScroll.on("scroll", (obj) => {
+      setDeltaY(obj.delta.y);
+      if (obj.direction === "down") {
+        setNavDesktopHide(true);
+        setArahScroller("down");
+      } else if (obj.direction === "up") {
+        setNavDesktopHide(false);
+        setArahScroller("up");
+      } else {
+        setNavDesktopHide(false);
+        setArahScroller("null");
+      }
+    });
     locoScroll.on("scroll", ScrollTrigger.update);
-
     ScrollTrigger.scrollerProxy(containerRef.current, {
       scrollTop(value) {
         return arguments.length
@@ -322,11 +357,28 @@ const FotografiPage = () => {
           : "var(--warna-pink)",
       }}
       transition={{ duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] }}
-      className="fotografipage-container"
+      className={
+        navMobileAktif
+          ? "fotografipage-container navbar-aktif"
+          : "fotografipage-container"
+      }
       ref={containerRef}
       data-scroll-container
+      // onMouseMove={(e) => {
+      //   gsap.to(cursor.current, {
+      //     duration: 0.5,
+      //     xPercent: -50,
+      //     yPercent: -50,
+      //     x: e.clientX,
+      //     y: e.clientY,
+      //     ease: "Power4.easeOut",
+      //     overwrite: "auto",
+      //   });
+      // }}
     >
+      {/* <div className="cursor" ref={cursor}></div> */}
       <NavbarMobileFoto target=".fotografipage-container" warna="#6b3d43" />
+      {/* <NavbarDesktop deltaY={deltaY} /> */}
       <div className="fotografer-wrapper">
         <motion.h1
           initial={{ y: 0, opacity: 1 }}
@@ -726,4 +778,15 @@ const FotografiPage = () => {
   );
 };
 
-export default FotografiPage;
+const mapStateToProps = (state) => {
+  return {
+    navMobileAktif: state.navMobileAktif,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setNavDesktopHide: (data) =>
+      dispatch({ type: "NAVDESKTOPHIDE", payload: data }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(FotografiPage);

@@ -1,19 +1,22 @@
 @use "../util/" as *;
 
 .about-page {
+  // height: 100vh;
+  &.navbar-aktif {
+    height: 100vh;
+    overflow: hidden;
+  }
   .cursor {
     display: none;
     pointer-events: none;
     @include breakpoint(large) {
       display: flex;
       position: fixed;
-
       top: 0;
       left: 0;
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-
       z-index: 100;
       border: var(--warna-biru) solid 1px;
     }
@@ -31,6 +34,7 @@
     align-items: center;
     justify-content: space-around;
     padding-bottom: 5rem;
+    padding-top: 5rem;
     // @include breakpoint(large) {
     //   flex-direction: row;
     // }

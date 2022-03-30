@@ -77,7 +77,7 @@ const Navbar = ({
       rotateX: "90deg",
       transition: {
         type: "spring",
-        duration: 1,
+        duration: 1.5,
         ease: [0.6, 0.01, -0.05, 0.9],
         // damping: 20,
         // stiffness: 200,
@@ -98,7 +98,7 @@ const Navbar = ({
       rotateX: "0deg",
       transition: {
         type: "spring",
-        duration: 1,
+        duration: 1.5,
         ease: [0.6, 0.01, -0.05, 0.9],
         // damping: 20,
         // stiffness: 200,

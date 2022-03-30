@@ -6,19 +6,21 @@ import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 const NavbarMobile = ({
   setNavMobileAktif,
-  setHomeStatus,
+  setNavDesktopStatus,
   navMobileAktif,
   target,
   warna,
-  dataScroll,
 }) => {
   const navMobile = useRef(null);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log({ navMobileAktif });
-    console.log({ target });
-    console.log({ dataScroll });
-  }, [dataScroll, navMobileAktif, target]);
+    return () => {
+      setTimeout(() => {
+        setNavDesktopStatus(null);
+      }, 3000);
+    };
+  }, [setNavDesktopStatus]);
+
   useEffect(() => {
     if (navMobileAktif) {
       gsap.to(navMobile.current, {
@@ -76,6 +78,9 @@ const NavbarMobile = ({
             onClick={() => {
               navigate("/home");
               setNavMobileAktif(false);
+              setTimeout(() => {
+                setNavDesktopStatus("home");
+              }, 500);
             }}
           >
             <motion.h2
@@ -91,6 +96,7 @@ const NavbarMobile = ({
             onClick={() => {
               navigate("/about");
               setNavMobileAktif(false);
+              setNavDesktopStatus("about");
             }}
           >
             <motion.h2
@@ -106,6 +112,7 @@ const NavbarMobile = ({
             onClick={() => {
               navigate("/contact");
               setNavMobileAktif(false);
+              setNavDesktopStatus("contact");
             }}
           >
             <motion.h2
@@ -132,6 +139,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setNavMobileAktif: (data) =>
       dispatch({ type: "NAVMOBILEAKTIF", payload: data }),
+    setNavDesktopStatus: (data) =>
+      dispatch({ type: "NAVDESKTOPSTATUS", payload: data }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NavbarMobile);

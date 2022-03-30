@@ -15,11 +15,6 @@ const NavbarMobile = ({
   const navMobile = useRef(null);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log({ navMobileAktif });
-    console.log({ target });
-    console.log({ dataScroll });
-  }, [dataScroll, navMobileAktif, target]);
-  useEffect(() => {
     if (navMobileAktif) {
       gsap.to(navMobile.current, {
         duration: 0.5,

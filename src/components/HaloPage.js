@@ -12,8 +12,6 @@ const HaloPage = () => {
   const h2 = useRef(null);
 
   useEffect(() => {
-    console.log(width);
-    console.log(height);
     const widthParam1 = () => {
       if (width >= 1400) {
         return "50rem";

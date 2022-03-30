@@ -1,6 +1,9 @@
 @use "../util/" as *;
 
 .contact-container {
+  &.navbar-aktif {
+    height: 100vh;
+  }
   .cursor {
     display: none;
     pointer-events: none;

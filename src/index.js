@@ -15,6 +15,9 @@ const initialState = {
   navKiri: false,
   navKanan: false,
   navMobileAktif: false,
+  navDesktopHeight: 0,
+  navDesktopStatus: null,
+  navDesktopHide: false,
   fullstack: false,
   fotografer: false,
   footer: false,
@@ -76,6 +79,21 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         footer: action.payload,
+      };
+    case "NAVDESKTOPHEIGHT":
+      return {
+        ...state,
+        navDesktopHeight: action.payload,
+      };
+    case "NAVDESKTOPHIDE":
+      return {
+        ...state,
+        navDesktopHide: action.payload,
+      };
+    case "NAVDESKTOPSTATUS":
+      return {
+        ...state,
+        navDesktopStatus: action.payload,
       };
     default:
       return state;

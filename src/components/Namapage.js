@@ -28,12 +28,6 @@ const Namapage = ({ setWidth, setHeigth, setXX, setYY }) => {
     force3D: true,
   });
   useEffect(() => {
-    // console.log("YPOS " + yPos);
-    // console.log("XPOS " + xPos);
-    // console.log("Y " + yPos * 20);
-    // console.log("X " + xPos * 20);
-    // console.log("Ydeg " + xPos * 40);
-    // console.log("Xdeg " + -yPos * 40);
     if (!halo) {
       if (follow) {
         gsap.to(namaRef, {

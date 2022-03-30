@@ -1,8 +1,27 @@
 @use "../util/" as *;
+.cursor {
+  display: none;
+  pointer-events: none;
+  @include breakpoint(large) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    z-index: 100;
+    border: var(--warna-pink-tua) solid 1px;
+  }
+}
 
 .fotografipage-container {
   background-color: var(--warna-biru);
-
+  &.navbar-aktif {
+    .c-scrollbar_thumb {
+      display: none;
+    }
+  }
   .fotografer-wrapper {
     z-index: 0;
     position: absolute;
@@ -52,30 +71,34 @@
       justify-content: center;
       align-items: center;
       width: 300vw;
+      padding-bottom: 3rem;
       @include breakpoint(medium) {
         width: 100vw;
       }
       .foto {
         border: 1px solid var(--warna-pink-tua);
-        margin: 0 2rem;
+        margin: 0 2.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
         position: relative;
-        height: 100vw;
-        width: 100vw;
+        height: 80vw;
+        width: 80vw;
         @include breakpoint(medium) {
           width: 18rem;
           height: 18rem;
+          margin: 0 2rem;
         }
         @include breakpoint(large) {
           width: 26rem;
           height: 26rem;
+          margin: 0 2rem;
         }
         @include breakpoint(xlarge) {
           width: 38rem;
           height: 38rem;
+          margin: 0 2rem;
         }
         .psoedo {
           position: absolute;
@@ -89,8 +112,8 @@
         img:not(.makan-dulu) {
           // padding: 0.5rem 0;
           z-index: 1;
-          height: 100vw;
-          width: 100vw;
+          height: 80vw;
+          width: 80vw;
           @include breakpoint(medium) {
             width: 18rem;
             height: 18rem;
@@ -109,7 +132,7 @@
           position: absolute;
         }
         .makan-dulu {
-          width: 100vw;
+          width: 80vw;
           @include breakpoint(medium) {
             width: 18rem;
           }
