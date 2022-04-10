@@ -32,7 +32,6 @@ const About = ({
   const [y, setY] = useState(0);
   const [arahScroller, setArahScroller] = useState();
   const [deltaY, setDeltaY] = useState(0);
-  const [home, setHome] = useState(false);
   var xPos = x / width - 0.5;
   var yPos = y / height - 0.5;
   useEffect(() => {

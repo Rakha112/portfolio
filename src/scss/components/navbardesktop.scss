@@ -1,6 +1,7 @@
 @use "../util/" as *;
 
 .navbar-desktop {
+  z-index: 999;
   text-transform: uppercase;
   display: none;
   position: relative;
