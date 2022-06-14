@@ -1,0 +1,85 @@
+@use "../util/" as *;
+
+.fullstack-container {
+  position: fixed;
+  .cursor {
+    display: none;
+    pointer-events: none;
+    @include breakpoint(large) {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      z-index: 100;
+      border: var(--warna-biru) solid 1px;
+    }
+  }
+  .container {
+    .video-container {
+      position: relative;
+      background-color: var(--warna-cream);
+      @include breakpoint(large) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      .shadow {
+        z-index: 3;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .video {
+        border-radius: 0;
+        @include breakpoint(large) {
+          border-radius: 1.5rem;
+        }
+        video {
+          cursor: pointer;
+          border-radius: 0rem;
+          width: 100vw;
+          transition: box-shadow 0.5s ease;
+          @include breakpoint(large) {
+            border-radius: 1.5rem;
+            width: 80vw;
+          }
+          &:hover {
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+    .skill-container {
+      position: relative;
+      z-index: 3;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--warna-cream);
+    }
+    .project-container {
+      .project-list {
+        overscroll-behavior: none;
+        width: 400% !important;
+        height: 100vh;
+        display: flex;
+        flex-wrap: nowrap;
+        .project {
+          background-color: var(--warna-cream);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100vw;
+          height: 100vh;
+        }
+      }
+    }
+  }
+}

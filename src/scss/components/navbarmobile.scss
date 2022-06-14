@@ -3,11 +3,11 @@
 .nav-mobile {
   text-transform: uppercase;
   position: absolute;
-  z-index: 10;
+  z-index: 999;
   @include breakpoint(large) {
     display: none;
   }
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: flex-end;
   padding: 2rem 2rem;
